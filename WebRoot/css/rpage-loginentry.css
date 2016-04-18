@@ -1,0 +1,18 @@
+#zhuce {
+	position:relative;
+	text-align:right;
+	float: right;
+	margin-top:20px;
+	margin-right:50px;
+	color:#03F;
+	height: auto;
+	min-width: 50px;
+}
+
+#zhuce a {
+	text-align:center;
+	font-family: Verdana,sans-serif,"Microsoft YaHei",arial,"黑体","宋体";
+	font-size: 16px;
+	text-decoration:underline;
+	margin-left: 15px;
+}

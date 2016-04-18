@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.QfgFeatures" table="qfg_features" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="queriesByQueryFirst" class="db.hibernate.tables.isearch.Queries" fetch="select">
+            <column name="query_first" />
+        </many-to-one>
+        <many-to-one name="queriesByQuerySecond" class="db.hibernate.tables.isearch.Queries" fetch="select">
+            <column name="query_second" />
+        </many-to-one>
+        <property name="cookie" type="string">
+            <column name="cookie" length="45" />
+        </property>
+        <property name="edlevGt2" type="java.lang.Double">
+            <column name="edlevGT2" precision="11" />
+        </property>
+        <property name="charPov" type="java.lang.Double">
+            <column name="char_pov" precision="11" />
+        </property>
+        <property name="charSuf" type="java.lang.Double">
+            <column name="char_suf" precision="11" />
+        </property>
+        <property name="wordPov" type="java.lang.Double">
+            <column name="word_pov" precision="11" />
+        </property>
+        <property name="wordSuf" type="java.lang.Double">
+            <column name="word_suf" precision="11" />
+        </property>
+        <property name="commonWords" type="java.lang.Double">
+            <column name="common_words" precision="11" />
+        </property>
+        <property name="wordJDistance" type="java.lang.Double">
+            <column name="word_j_distance" precision="11" />
+        </property>
+    </class>
+</hibernate-mapping>

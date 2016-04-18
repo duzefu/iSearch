@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        ">
+
+	<context:property-placeholder location="classpath:/proxool.properties" />
+
+	<!-- url的格式为：proxool.xxx，其中xxx是proxool.properties中配置的数据源alias -->
+	<bean id="dataSourceiSearch"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.logicalcobwebs.proxool.ProxoolDriver" />
+		<property name="url" value="proxool.isearch" />
+	</bean>
+	<bean id="dataSourceClassifier"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.logicalcobwebs.proxool.ProxoolDriver" />
+		<property name="url" value="proxool.classifier" />
+	</bean>
+
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		lazy-init="true">
+		<property name="dataSource" ref="dataSourceiSearch"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+			</props>
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:/db/hibernate/tables/isearch/</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="sessionFactoryClassifier"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		lazy-init="true">
+		<property name="dataSource" ref="dataSourceClassifier"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+			</props>
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:/db/hibernate/tables/classifier/</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置Hibernate事务管理器 -->
+	<bean id="transactionManageriSearch"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="transactionManagerClassifier"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactoryClassifier" />
+	</bean>
+
+	<!-- 配置事务异常封装 -->
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"
+		lazy-init="true" />
+
+	<!-- 用于Spring管理Hibernate事务特性 -->
+	<tx:advice id="txAdviceiSearch" transaction-manager="transactionManageriSearch">
+		<tx:attributes>
+			<tx:method name="exists" read-only="true" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="put*" propagation="REQUIRED" />
+			<tx:method name="use*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="bussinessService" expression="execution(* struts.actions.web.*.*(..))" />
+		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdviceiSearch" />
+	</aop:config>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="dao" expression="execution(* db.dao.*.*(..))" />
+		<aop:advisor pointcut-ref="dao" advice-ref="txAdviceiSearch" />
+	</aop:config>
+
+	<!-- 以下配置各类自定义bean，其中，不设置singleton="false"时，各个bean默认以单例模式来产生，如果某一个类不希望是单例的，就要配置这个属性 -->
+	<bean id="UserDao" class="db.dao.impl.UserDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="UserSeSettingDao" class="db.dao.impl.UserSeSettingDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="HotwordsDao" class="db.dao.impl.HotwordsDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="WordsDivisionDao" class="db.dao.impl.WordsDivisionDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="LogToWordsDao" class="db.dao.impl.LogToWordsDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="ClickLogDao" class="db.dao.impl.ClickLogDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="categoryDao" ref="CategoryDao"></property>
+	</bean>
+	<bean id="UserInterestValueDao" class="db.dao.impl.UserInterestValueDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="categoryDao" ref="CategoryDao"></property>
+	</bean>
+	<bean id="CategoryDao" class="db.dao.impl.CategoryDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="UserGroupDao" class="db.dao.impl.UserGroupDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="userDao" ref="UserDao"></property>
+		<property name="categoryDao" ref="CategoryDao"></property>
+	</bean>
+	<bean id="QueriesDao" class="db.dao.impl.QueriesDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="QfgGenDao" class="db.dao.impl.QFGGenDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="queriesDao" ref="QueriesDao"></property>
+	</bean>
+	
+	<bean id="springBeanFactoryUtil" class="server.commonutils.SpringBeanFactoryUtil" />
+	<bean id="sglogProcThread" class="outdated.sougoulogrelate.SougouLogProcessThread"
+		lazy-init="true">
+		<property name="sgProcessor" ref="SGLogProcess"></property>
+	</bean>
+	<bean id="SGLogProcess" class="outdated.sougoulogrelate.SougouLogProcess"
+		scope="prototype" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+		<property name="clickLogDao" ref="ClickLogDao" />
+		<property name="wdDao" ref="WordsDivisionDao" />
+		<property name="log2wDao" ref="LogToWordsDao" />
+		<property name="categoryDao" ref="CategoryDao" />
+	</bean>
+	<bean id="qfgGenThread" class="common.functions.recommendation.qfg.GenerateQFGThread"
+		lazy-init="true">
+	</bean>
+
+	<bean id="SearchAction" scope="prototype" class="struts.actions.web.SearchAction"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="PictureSearchAction" scope="prototype" class="struts.actions.web.PictureSearchAction"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+		<property name="userSeSettingDao" ref="UserSeSettingDao" />
+	</bean>
+
+	<bean id="RealHot" scope="prototype" class="struts.actions.web.RealHot"
+		lazy-init="true">
+	</bean>
+
+	<bean id="UserClick" scope="prototype" class="struts.actions.web.UserClick"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="UserLogin" scope="prototype"
+		class="struts.actions.web.UserLogin" lazy-init="true">
+	</bean>
+
+	<bean id="UserSetting" scope="prototype" class="struts.actions.web.UserSetting"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+		<property name="userSeSettingDao" ref="UserSeSettingDao" />
+	</bean>
+
+	<bean id="UserRegister" scope="prototype" class="struts.actions.web.UserRegister"
+		lazy-init="true">
+	</bean>
+
+	<bean id="UserLogOut" scope="prototype" class="struts.actions.web.UserLogOut"
+		lazy-init="true">
+	</bean>
+
+	<bean id="AndroidSearchAction" scope="prototype"
+		class="struts.actions.android.AndroidSearchAction" lazy-init="true">
+	</bean>
+
+	<bean id="AndroidRealtimeHotAction" scope="prototype"
+		class="struts.actions.android.AndroidRealtimeHotAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidUserRegisterAction" scope="prototype"
+		class="struts.actions.android.AndroidUserRegisterAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidSendMailAction" scope="prototype"
+		class="struts.actions.android.AndroidSendMailAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+	
+	<bean id="AndroidSetPasswdAction" scope="prototype"
+		class="struts.actions.android.AndroidSetPasswdAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+	
+	<bean id="AndroidUserConfigurationAction" scope="prototype"
+		class="struts.actions.android.AndroidUserConfigurationAction"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidUserBehaviorAction" scope="prototype"
+		class="struts.actions.android.AndroidUserBehaviorAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidPercentageAction" scope="prototype"
+		class="struts.actions.android.AndroidPercentageAction" lazy-init="true">
+	</bean>
+
+	<bean id="AndroidRelatedSearchAction" scope="prototype"
+		class="struts.actions.android.AndroidRelatedSearchAction"
+		lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidUserInterestAction" scope="prototype"
+		class="struts.actions.android.AndroidUserInterestAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+	<bean id="AndroidGroupRecommAction" scope="prototype"
+		class="struts.actions.android.AndroidGroupRecommAction" lazy-init="true">
+		<property name="userDao" ref="UserDao" />
+	</bean>
+
+</beans>

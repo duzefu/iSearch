@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScoreList>
+	<Score>
+		<EngineName>baidu</EngineName>
+
+		<education>1.676</education>
+		<employment>1.638</employment>
+		<financial>1.603</financial>
+		<health>1.625</health>
+		<it>1.652</it>
+		<literature>1.486</literature>
+		<military>1.295</military>
+		<sports>1.578</sports>
+		<tourism>1.429</tourism>
+	</Score>
+	<Score>
+		<EngineName>youdao</EngineName>
+
+		<education>1.328</education>
+		<employment>1.529</employment>
+		<financial>1.533</financial>
+		<health>1.460</health>
+		<it>1.238</it>
+		<literature>1.394</literature>
+		<military>1.530</military>
+		<sports>1.608</sports>
+		<tourism>1.512</tourism>
+	</Score>
+	<Score>
+		<EngineName>sogou</EngineName>
+
+		<education>1.321</education>
+		<employment>1.413</employment>
+		<financial>1.236</financial>
+		<health>1.346</health>
+		<it>1.454</it>
+		<literature>1.534</literature>
+		<military>1.641</military>
+		<sports>1.561</sports>
+		<tourism>1.500</tourism>
+	</Score>
+	<Score>
+		<EngineName>bing</EngineName>
+
+		<education>1.195</education>
+		<employment>1.153</employment>
+		<financial>1.116</financial>
+		<health>1.153</health>
+		<it>1.147</it>
+		<literature>1.135</literature>
+		<military>1.092</military>
+		<sports>1.158</sports>
+		<tourism>1.105</tourism>
+	</Score>
+	<Score>
+		<EngineName>Yahoo</EngineName>
+
+		<education>1.195</education>
+		<employment>1.153</employment>
+		<financial>1.116</financial>
+		<health>1.153</health>
+		<it>1.147</it>
+		<literature>1.135</literature>
+		<military>1.092</military>
+		<sports>1.158</sports>
+		<tourism>1.105</tourism>
+	</Score>
+</ScoreList>

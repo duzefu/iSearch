@@ -1,0 +1,194 @@
+a:link {
+	text-decoration: none;
+}
+
+#returnpage-head{
+	position: relative;
+	margin-left: 15px;
+	height: 100px;/*这个要与logo图片的高度适应，否则不好看；如果大于图片高度，应该设置图片的margin-top，让图片垂直居中*/
+	width: 100%;
+}
+
+.rpage-fleft-div{
+	float:left;
+	margin: auto;
+}
+
+#returnpage-logo{
+	width: 100px;
+	height: 100px;
+}
+
+#returnpage-head-middle{
+	margin-left: 15px;
+	height: 100px;
+	min-width: 500px;
+	max-width: 650px;
+	width: 70%;
+}
+
+#returnpage-head-middle form{
+	margin-bottom: 0px;
+}
+
+.ss_table span{
+	cursor:pointer;
+	margin-right : 8px;
+	font-size: 18px;
+	font-style: italic;
+	color: #000;
+}
+
+#query{
+	width: 600px;
+	max-width: 80%;
+	height: 40px;
+	margin-top: 3px
+}
+
+#searchbutton{
+	height: 40px;
+	width: 80px;
+	text-align: center;
+	margin-top: 3px;
+	margin-left: 15px;
+}
+
+#search{
+	margin-bottom: 0px;
+}
+
+#main-body{
+	height: auto;
+	font-family: sans-serif,arial,"Microsoft YaHei","黑体","宋体",tahoma;
+	min-width: 1100px;
+	margin-top: 20px;
+	margin-left: 25px;
+}
+
+.title-hint{
+	font-size: 16px;;
+	font-weight: bold;
+	text-align: left;
+}
+
+#query-recomm{
+	min-height: 50px;
+}
+
+.left-words{
+	padding-left:15px;
+	
+}
+
+.left-div{
+	margin-bottom: 15px;
+}
+
+#result-area{
+	min-width: 400px;
+	max-width: 700px;
+}
+
+#main-left{
+	min-width: 100px;
+	max-width: 170px;
+}
+
+#main-left td{
+	font-size: 14px
+}
+
+#main-right{
+	min-width: 100px;
+	max-width:150px;
+	margin-left: 20px;
+}
+
+.result-container{
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
+
+.result-title{
+	font-size: 17px;
+	font-weight: normal;
+	margin-bottom: 3px;
+	margin-top: 0px;
+}
+
+.result-title a{
+	text-decoration: underline;
+	color: #f44;
+}
+
+.result-abstract{
+	font-size:13px;
+	margin-bottom: 2px;
+}
+
+.result-url{
+	color: #008000;
+	font-size: 13px;
+}
+
+.result-from{
+	font-size: 13px
+}
+
+.result-from .result-from-recomm{
+	color: #55f;
+}
+
+.result-from .result-from-eng{
+	color: #333;
+}
+
+.result-from .result-from-eng span{
+	cursor:pointer;
+}
+
+.pages{
+	font-family: arial, sans-serif, "宋体";
+	text-align: left;
+	font-size: 16px;
+	color: #666;
+	display: block;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.pages .page-elem{
+	border: 1px solid #ccc;
+	width: 34px;
+	height: 34px;
+	display: inline-block;
+	margin-right: 15px;
+	text-align: center;
+	padding-top: 7px;
+} 
+
+.pages .page-jump{
+	border: 1px solid #ccc;
+	height: 34px;
+	width: auto;
+	display: inline-block;
+	margin-right: 15px;
+	text-align: center;
+	padding-top: 7px;
+	padding-left: 8px;
+	padding-right: 8px;
+} 
+
+.pages a{
+	color=:66f;
+	cursor: pointer;
+}
+
+#page-area {
+	margin-left: 30px;
+}
+html{
+	width:100%;
+	overflow-x:hidden;
+}

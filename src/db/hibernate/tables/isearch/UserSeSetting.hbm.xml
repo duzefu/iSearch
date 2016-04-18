@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.UserSeSetting" table="user_se_setting" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="db.hibernate.tables.isearch.User" fetch="select">
+            <column name="userid" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" not-null="true" />
+        </property>
+        <property name="seSetting" type="string">
+            <column name="se_setting" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

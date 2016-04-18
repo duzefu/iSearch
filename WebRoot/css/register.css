@@ -1,0 +1,124 @@
+#body{
+	width:100%;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+a:hover {
+	
+	text-decoration: padding-bottom:20px;
+	border-bottom: 3 solid #666;
+}
+#welcome{
+	background-color:#eee;
+	height: 50px;
+	margin-top: 5px;
+}
+
+#welcome-register{
+	vertical-align: middle;
+	border-right: 1px dotted #bbb;
+	height: 44px;
+	float: left;
+	display: inline-block;
+	font-size: 25px;
+	margin-left: 3%;
+	padding-right: 30px;
+	padding-top: 6px;
+}
+
+#has-account{
+	float: right;
+	margin-right: 10%;
+	margin-top: 15px;
+}
+
+#registerfail{
+	font-size:14px; 
+	color:#F00;
+	height: 30px;
+}
+
+#main-container{
+	width: 80%;
+	min-width: 800px;
+	text-align: center;
+	margin-left: 3%;
+}
+
+#main-container form{
+	text-align: left;
+	margin-left: 8%;
+	margin-top: 5px;
+	height: 420px;
+}
+
+#page-head{
+	height: 100px;
+}
+#regpage-logo{
+	float: left;
+	margin-left: 3%;
+}
+
+#return-home{
+	float: right;
+	margin-right: 10%;
+	margin-top: 60px;
+}
+
+.row{
+	margin-top: 15px;
+}
+
+.left-col{
+	text-align: right;
+	float: left;
+	padding-top: 4px;
+	font-size: 17px;
+	width: 150px;
+}
+
+.right-col{
+	margin-left: 25px;
+	float: left;
+}
+
+.right-input input{
+	width: 250px;
+	height: 34px;
+}
+
+.right-prompt{
+	margin-top: 10px;
+	font-size: 14px;
+	color: #aaa;
+}
+
+#button-row{
+		margin-left:90px;
+}
+
+#button-row input{
+	margin-right: 30px;
+	width:80px;
+	height:30px;
+	background-color:#00F;
+	color:#FFF;
+	font-weight:bold;
+}
+
+.input-promt{
+	margin-left: 15px;
+	font-size: 14px;
+	color: #f44;
+}

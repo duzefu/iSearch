@@ -1,0 +1,152 @@
+header.nav {
+    padding: 12px 0px;
+    line-height: 36px;
+}
+.bg-default {
+    background-color: orange;
+	font-family: "Microsoft YaHei" ! important;
+}
+.logo img {
+margin-left: -20px;
+    height: 35px;
+}
+div.nav ul li a {
+    text-decoration: none;
+    color: #FFF;
+    display: block;
+}
+.btn-top {
+    background-color: #eee;
+}
+
+.index-list{ background-color:#eee;height: 466px;}
+
+.top-item{background-color:#eee;}
+.btn-sign{background-color:#eee;border-color:#eee;color:#FF0000;}
+.bg-light{font-family: "Microsoft YaHei" ! important;}
+.input-group-btn{margin-left: 10px;}
+.form-control{    margin-left: 0;
+    margin-top: 2px;
+    width: 250px;}
+.search{margin-left:500px;}
+.index-list-front {
+    float: left;
+position: relative;
+z-index: 10;
+width: 210px;
+height: 44px;
+overflow: visible;
+background: #B1191A;
+}
+.jumbotron{font-family: "Microsoft YaHei" ! important;}
+
+a.index-list-font {
+float: left;
+position: relative;
+z-index: 10;
+width: 210px;
+height: 44px;
+overflow: visible;
+background: #B1191A;
+}
+a.index-list-font1
+{
+display: block;
+width: 190px;
+height: 44px;
+padding: 0 10px;
+background: #B1191A;
+font: 400 15px/44px "microsoft yahei";
+color: #fff;
+text-decoration: none;
+}
+
+.index-list-inner10{
+    font-family: "microsoft yahei";
+    background-color:#337af0;
+    font-size: 14px;
+    font-weight: 400;
+	width: 190px;
+    
+    line-height: 31px;
+    padding: 0 10px;
+    position: absolute;
+    z-index: 2;
+text-align:center;
+}
+.index-list-inner{
+float: left;
+position: relative;
+z-index: 10;
+width: 210px;
+height: 44px;
+overflow: visible;
+background: #B1191A;
+}
+.index-list-inner1{
+float: left;
+position: relative;
+z-index: 10;
+width: 210px;
+height: 44px;
+overflow: visible;
+background: #B1191A;
+}
+.index-list-inner2
+{
+border-left: 1px solid #b61d1d;
+position: relative;
+z-index: 1;
+height: 31px;
+color: #fff;
+background: #c81623;
+}
+.index-list-inner-font
+{
+font-size:14px;color:#FFF;
+
+}
+
+.hr1{    margin-bottom: 0px;-moz-border-top-colors: black;
+    margin-top: -1px;width:100px;}
+.index-bottom{text-align: center;}
+
+
+
+
+.signin-logo{margin:auto;clear:both;text-align:center;height:44px;}
+.signup-logo{margin:auto;clear:both;height:44px;}
+.signin-container{text-align:center;border-radius: 4px;
+    margin-left: 420px;width:300px; }
+.signin-top{background-color:#004B97;color:#FFF;text-align:center;   
+    font-size: 24px;border-radius: 4px;
+    }
+.signin-inner{background-color:#66B3FF;    border-top-width: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;}
+
+.signup-inner{background-color:#66B3FF;    border-top-width: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;}
+
+.signup-container{text-align:center;border-radius: 4px;
+   color:white; }
+.border1{border:5px;color:white;}
+.border2{border: 5px solid #eee;}
+
+.admin-list {
+    
+    color: blue;
+    display: block;
+    font: 400 14px/44px "microsoft yahei";
+    height: 44px;
+    padding: 0 10px;
+    text-decoration: none;
+   
+   
+}
+.focus-adminlist{color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+background-color: #0088cc;}

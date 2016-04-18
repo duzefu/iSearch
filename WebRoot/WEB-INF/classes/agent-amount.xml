@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 定义Agent的数量及名字前缀，实际的名字在前缀后面加数字； 另外一个文件agent-names.xml暂时不用 -->
+<AgentList>
+	<LoginAgent>
+		<Amount>1</Amount>
+		<Prefix>login-agent-</Prefix>
+	</LoginAgent>
+	<RegisterAgent>
+		<Amount>1</Amount>
+		<Prefix>regist-agent-</Prefix>
+	</RegisterAgent>
+	<ClickLogAgent>
+		<Amount>5</Amount>
+		<Prefix>click-log-agent-</Prefix>
+	</ClickLogAgent>
+	<SearchAgent>
+		<Amount>1</Amount>
+		<Prefix>search-entry-agent-</Prefix>
+	</SearchAgent>
+	<MemberSearchAgent>
+		<Amount>10</Amount>
+		<Prefix>member-search-agent-</Prefix>
+	</MemberSearchAgent>
+	<ResultMergeAgent>
+		<Amount>1</Amount>
+		<Prefix>result-merge-agent-</Prefix>
+	</ResultMergeAgent>
+	<ResultRecommAgent>
+		<Amount>1</Amount>
+		<Prefix>result-recomm-agent-</Prefix>
+	</ResultRecommAgent>
+	<QueryRecommAgent>
+		<Amount>1</Amount>
+		<Prefix>query-recomm-agent-</Prefix>
+	</QueryRecommAgent>
+	<QueryGroupRecommAgent>
+		<Amount>1</Amount>
+		<Prefix>query-group-recomm-agent-</Prefix>
+	</QueryGroupRecommAgent>
+	<QueryQFGRecommAgent>
+		<Amount>1</Amount>
+		<Prefix>query-qfg-recomm-agent-</Prefix>
+	</QueryQFGRecommAgent>
+	<GroupDivideAgent>
+		<Amount>1</Amount>
+		<Prefix>group-divide-agent-</Prefix>
+	</GroupDivideAgent>
+</AgentList>

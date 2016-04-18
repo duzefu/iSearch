@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.Category" table="category" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="categoryName" type="string">
+            <column name="category_name" length="45" />
+        </property>
+        <set name="userFavorWordses" table="user_favor_words" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserFavorWords" />
+        </set>
+        <set name="userInterestValues" table="user_interest_value" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserInterestValue" />
+        </set>
+        <set name="groupToCategories" table="group_to_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.GroupToCategory" />
+        </set>
+        <set name="clickLogs" table="click_log" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.ClickLog" />
+        </set>
+    </class>
+</hibernate-mapping>

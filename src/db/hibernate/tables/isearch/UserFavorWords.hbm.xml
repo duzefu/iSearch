@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.UserFavorWords" table="user_favor_words" catalog="isearch">
+        <id name="wordid" type="java.lang.Integer">
+            <column name="wordid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="db.hibernate.tables.isearch.User" fetch="select">
+            <column name="userid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="db.hibernate.tables.isearch.Category" fetch="select">
+            <column name="category_id" />
+        </many-to-one>
+        <property name="word" type="string">
+            <column name="word" not-null="true" />
+        </property>
+        <property name="classification" type="string">
+            <column name="classification" not-null="true" />
+        </property>
+        <property name="relevance" type="string">
+            <column name="relevance" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0" not-null="true" />
+        </property>
+        <property name="value" type="double">
+            <column name="value" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

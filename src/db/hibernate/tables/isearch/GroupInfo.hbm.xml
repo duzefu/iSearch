@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.GroupInfo" table="group_info" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="remark" type="string">
+            <column name="remark" length="45" />
+        </property>
+        <set name="userGroupses" table="user_groups" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="gid" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserGroups" />
+        </set>
+        <set name="groupToCategories" table="group_to_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="group_id" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.GroupToCategory" />
+        </set>
+    </class>
+</hibernate-mapping>

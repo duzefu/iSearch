@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+ 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.locale" value="UTF-8" />
+	<package name="pic" extends="struts-default">
+	
+        <action name="picture" class="struts.actions.web.PictureSearchAction">
+        	<result name="success">/picture.jsp</result>
+			<result name="error">/error.jsp</result>
+        </action>
+        <action name="pic" class="struts.actions.web.PicSearchAction">
+        	<result name="success">/pic.jsp</result>
+			<result name="error">/error.jsp</result>
+        </action>
+        <action name="testpic" class="struts.actions.web.PictureSearchAction">
+        	<result name="success">/testpic.jsp</result>
+			<result name="error">/error.jsp</result>
+        </action>
+	</package>
+	
+	<package name="vid" extends="struts-default">
+	
+        <action name="video" class="struts.actions.web.VideoSearchAction">
+        	<result name="success">/vid.jsp</result>
+			<result name="error">/error.jsp</result>
+        </action>
+	</package>
+	
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<!--注入 <default-action-ref name="index" /> <global-results> <result name="error">/error.jsp</result> 
+			</global-results> <global-exception-mappings> <exception-mapping exception="java.lang.Exception" 
+			result="error"/> </global-exception-mappings> -->
+		<action name="search" class="SearchAction">
+			<result name="search">/search.jsp</result>
+			<result name="success">/returnpage.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="index">/search.jsp</result>
+
+		</action>
+		
+	    
+		<action name="realhot" class="RealHot">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getsearchengine" class="GetSearchEngine">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="userclick" class="UserClick">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="userlogin" class="UserLogin">
+		</action>
+
+		<action name="usersetting" class="UserSetting">
+			<result name="saveSettingsSuccess">/search.jsp</result>
+		</action>
+
+		<action name="userregister" class="UserRegister">
+			<result name="registerSuccess">/registerOK.jsp</result>
+			<result name="registerFail">/registerFail.jsp</result>
+		</action>
+
+		<action name="userlogout" class="UserLogOut">
+		</action>
+
+		<action name="android" class="AndroidSearchAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androidconfiguration" class="AndroidConfigurationAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androidrealtime" class="AndroidRealtimeHotAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androiduserregister" class="AndroidUserRegisterAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androidsendmail" class="AndroidSendMailAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+				<action name="androidsetpasswd" class="AndroidSetPasswdAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androiduserconfiguration" class="AndroidUserConfigurationAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="androiduserbehavior" class="AndroidUserBehaviorAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="androidpercentage" class="AndroidPercentageAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="androidrelatedsearch" class="AndroidRelatedSearchAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="androiduserinterest" class="AndroidUserInterestAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="androidgrouprecommaction" class="AndroidGroupRecommAction">
+			<interceptor-ref name="createSession" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+	</package>
+
+</struts>

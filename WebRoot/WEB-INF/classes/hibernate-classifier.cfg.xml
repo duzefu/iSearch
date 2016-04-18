@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/classifier</property>
+		<!-- 这里配置的用户名与密码不在系统工作时使用，但用于Hibernate从数据库表逆向生成Java类的过程 -->
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="connection.useUnicode">true</property> 
+		<property name="connection.characterEncoding">UTF-8</property>
+		
+	</session-factory>
+
+</hibernate-configuration>

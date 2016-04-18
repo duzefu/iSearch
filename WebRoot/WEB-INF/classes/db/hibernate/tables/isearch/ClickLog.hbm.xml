@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.ClickLog" table="click_log" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="db.hibernate.tables.isearch.User" fetch="select">
+            <column name="userid" />
+        </many-to-one>
+        <many-to-one name="category" class="db.hibernate.tables.isearch.Category" fetch="select">
+            <column name="category_id" />
+        </many-to-one>
+        <property name="query" type="string">
+            <column name="query" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" />
+        </property>
+        <property name="classification" type="string">
+            <column name="classification" />
+        </property>
+        <property name="value" type="java.lang.Integer">
+            <column name="value" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="0" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" />
+        </property>
+        <property name="abstr" type="string">
+            <column name="abstr" />
+        </property>
+        <property name="rank" type="java.lang.Integer">
+            <column name="rank" />
+        </property>
+        <property name="clickRank" type="java.lang.Integer">
+            <column name="click_rank" />
+        </property>
+    </class>
+</hibernate-mapping>

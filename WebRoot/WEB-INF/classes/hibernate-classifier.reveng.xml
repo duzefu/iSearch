@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="education" match-catalog="classifier"></table-filter>
+	<table-filter match-name="employment" match-catalog="classifier"></table-filter>
+	<table-filter match-name="financial" match-catalog="classifier"></table-filter>
+	<table-filter match-name="health" match-catalog="classifier"></table-filter>
+	<table-filter match-name="it" match-catalog="classifier"></table-filter>
+	<table-filter match-name="literature" match-catalog="classifier"></table-filter>
+	<table-filter match-name="military" match-catalog="classifier"></table-filter>
+	<table-filter match-name="sports" match-catalog="classifier"></table-filter>
+	<table-filter match-name="tourism" match-catalog="classifier"></table-filter>
+</hibernate-reverse-engineering>

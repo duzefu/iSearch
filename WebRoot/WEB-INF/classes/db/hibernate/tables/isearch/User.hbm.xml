@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.User" table="user" catalog="isearch">
+        <id name="userid" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="emailadress" type="string">
+            <column name="emailadress" />
+        </property>
+        <property name="imei" type="string">
+            <column name="imei" />
+        </property>
+        <property name="cookieid" type="string">
+            <column name="cookieid" />
+        </property>
+        <set name="userFavorWordses" table="user_favor_words" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserFavorWords" />
+        </set>
+        <set name="userSeSettings" table="user_se_setting" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserSeSetting" />
+        </set>
+        <set name="userInterestValues" table="user_interest_value" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserInterestValue" />
+        </set>
+        <set name="userGroupses" table="user_groups" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.UserGroups" />
+        </set>
+        <set name="clickLogs" table="click_log" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.ClickLog" />
+        </set>
+    </class>
+</hibernate-mapping>

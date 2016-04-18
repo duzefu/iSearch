@@ -1,0 +1,112 @@
+body {
+	font-family: sans-serif,"Microsoft YaHei","黑体",arial,"宋体",tahoma;
+	font-size: 14px;
+	text-align: center;
+	height:auto;
+	width: auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+#logo{
+	margin-top: 15px;
+}
+
+#navigation {
+	border: #000;
+	height: auto;
+	width: auto;
+	line-height:10px;
+}
+
+#query{
+	height: 35px; 
+	width: 30%;
+	min-width: 400px;
+}
+
+#searchbutton{
+	height: 33px;
+	width: 70px;
+	text-align: center;
+	margin-left: 10px;
+	height: 35px;
+}
+
+#below_input{
+	margin-top:20px;
+}
+
+#engSelector{
+	font-size:19px;
+	font-style:italic;
+	font-family: Times New Roman, "宋体";
+}
+
+.engSelCol1{
+	font-weight: bold;
+	font-size:18px;
+	font-family:Times New Roman,sans-serif,"Microsoft YaHei","黑体","宋体" ;
+	color:#666;
+	text-align: left;
+	min-width: 200px;
+}
+
+.engSelCol2{
+	text-align: left;
+}
+
+.engSelRow{
+	height:35px;
+}
+
+#hotwords{
+	position:relative;
+	text-align: center;
+	height: auto;
+	margin-top: 10px;
+}
+
+#hotwords-table{
+	width: 40%;
+}
+
+#hotwords-title{
+	font-family: Times New Roman, sans-serif,"Microsoft YaHei",  "黑体", "宋体";
+	height:30px;
+	border-bottom:2px solid #CCC;
+	color:#666;
+}
+
+#hwtitle-left{
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#hwtitle-more{
+	text-align: right;
+}
+
+.hotword-row{
+	margin-top: 10px;
+}
+
+.hotword-cell{
+	font-size: 17px;
+	text-align: left;
+	min-width: 150px;
+}
+
+#hotwords .title a{
+	font-family: Times New Roman, "宋体";
+	font-style: italic;
+	height:20px;
+	color:#666;
+	margin-left:70%;
+	margin-top:10px;
+}

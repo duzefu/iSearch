@@ -1,0 +1,52 @@
+body {
+	height:auto;
+	width: auto;
+}
+
+#return {
+	float:right;
+	position:relative;
+	/* top:10px;*/
+	margin-right:0px; 
+	height:30px;
+	text-align:center;
+}
+
+#return a {
+	text-align: center;
+	font-family: "ºÚÌå";
+	font-size: 12px;
+	color: #03F;
+	text-decoration: none;
+	margin-right: 15px;
+}
+
+#ruisou {
+	height: 100px;
+	width: 170px;
+	background-image: url(../images/2.jpg);
+	margin-left: 100px;
+	margin-bottom: 5px;
+}
+#setting {
+	font: "Î¢ÈíÑÅºÚ";
+	font-size: 18px;
+	font-weight: bold;
+	color: #999;
+	width: auto;
+	height: 30px;
+	background-image:
+		url(../images/%E5%AF%BC%E8%88%AA%E6%9D%A1%E8%83%8C%E6%99%AF.png);
+	background-color: #FFC;
+	padding-top: 8px;
+	padding-left: 200px;
+}
+#copyright {
+	position:relative;
+	height: 30px;
+	width: 200px;
+	margin:170px 200px 0px 600px;
+	/* left: 500px; */
+	font-size: 15px;
+	color: #999;
+}

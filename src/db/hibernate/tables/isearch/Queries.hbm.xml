@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.hibernate.tables.isearch.Queries" table="queries" catalog="isearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="query" type="string">
+            <column name="query" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="0" />
+        </property>
+        <set name="qfgFeaturesesForQuerySecond" table="qfg_features" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="query_second" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.QfgFeatures" />
+        </set>
+        <set name="qfgFeaturesesForQueryFirst" table="qfg_features" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="query_first" />
+            </key>
+            <one-to-many class="db.hibernate.tables.isearch.QfgFeatures" />
+        </set>
+    </class>
+</hibernate-mapping>

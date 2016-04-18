@@ -1,0 +1,11 @@
+1. 如果调试时使用System.out.println()输出，在提交后把相应的输出语句删除或注释（自己写的main函数调试的无所谓，嵌入系统工作流程的部分尽量不要用控制台输出）。
+2. 最好使用系统中使用的日志系统来输出，方法是：LogU.print(msg)，msg就是String，要输出的内容。
+3. 只需要修改：log4j.proterties文件中的：
+	1) log4j.rootLogger = DEBUG，其中设置为debug表示控制台可以输出
+	2) 还可以修改更多：log4j.logger.console=DEBUG, CONSOLE以及log4j.appender.CONSOLE.Threshold=DEBUG
+	3) 上述几个debug，在部署到服务器时，设置为error就可以关闭信息输出；平时设置为debug就可以用来调试。
+	4) 也可以用log4j实现更多的日志控制。
+4. 关于数据库，由于系统同时使用了Hibernate和JDBC，数据库密码有三个地方配置：
+	1) hibernate.cfg.xml及hibernate-classifier.cfg.xml，这两个文件中的配置不会影响项目工作，只在Hibernate根据数据表逆向得到Java类时使用；
+	2) db.jdbc.Set.java文件中，这里已经修改，会按3中的配置确定用户名和密码；
+	3) proxool.properties文件，修改其中的jdbc-0.user=root及jdbc-0.password=root有效，但在这两行后面不能添加多余的字符。
